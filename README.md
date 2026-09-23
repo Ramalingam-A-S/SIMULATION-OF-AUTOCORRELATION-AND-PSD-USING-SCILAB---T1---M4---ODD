@@ -56,4 +56,69 @@ Visualize the autocorrelation function and PSD.
 - If any Error, correct it in code and execute again.
 - Verify the generated waveform using Tabulation and Model Waveform.
 
-## MODEL GRAPH
+## MODEL GRAPH / SCILAB OUTPUT
+
+![Model Graph / Scilab Output](images/page_1.png)
+
+## AIM / CODE
+
+![Aim and Code](images/page_2.png)
+
+### Scilab Source Code
+
+```scilab
+clc;
+clear;
+x = [10 15 20 25 30];
+n = 5;
+sum_x = sum(x);
+mean_x = sum(x)/n;
+disp("Mean = ");
+disp(mean_x);
+variance = sum((x - mean_x).^2)/n;
+disp("Variance = ");
+disp(variance);
+Rxy = xcorr(x, x);
+figure();
+plot(Rxy);
+xlabel("Lag");
+ylabel("Cross correlation");
+xgrid();
+```
+
+## TABULATION
+
+| $x$ | $\bar{x}$ | $x - \bar{x}$ | $(x - \bar{x})^2$ |
+| --- | --------- | ------------- | ----------------- |
+| 10  | 20        | -10           | 100               |
+| 15  | 20        | -5            | 25                |
+| 20  | 20        | 0             | 0                 |
+| 25  | 20        | 5             | 25                |
+| 30  | 20        | 10            | 100               |
+
+![Tabulation](images/page_4.png)
+
+## CALCULATIONS
+
+$$
+\text{Mean } (\bar{x}) = \frac{\sum x}{n} = \frac{10 + 15 + 20 + 25 + 30}{5} = \frac{100}{5} = 20
+$$
+
+$$
+\text{Variance} = \frac{\sum (x - \bar{x})^2}{N} = \frac{250}{5} = 50
+$$
+
+![Calculations](images/page_4.png)
+
+## RESULT
+
+The mean, variance, and autocorrelation are simulated and verified using SCILAB.
+
+- **Mean**: 20
+- **Variance**: 50
+
+![Result](images/page_4.png)
+
+## RECORD EVALUATION
+
+![Record Evaluation](images/page_3.png)
